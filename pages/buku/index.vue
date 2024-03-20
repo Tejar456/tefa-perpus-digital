@@ -12,7 +12,7 @@
     </div>
       <div class="row">
         <div v-for="(book,i) in books" :key="i" class="col-lg-2">
-          <nuxt-link :to="`${book.id}`">
+          <nuxt-link :to="`buku/${book.id}`">
             <div class="card mb-3">
               <div class="card-body">
                 <img :src="book.cover" class="cover" alt="cover">

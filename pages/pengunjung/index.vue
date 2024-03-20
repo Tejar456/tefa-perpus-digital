@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="contsinaer-fluid">
     <div class="row">
       <div class="col-lg-12 p-5">
         <h2 class="text-center my-4">RIWAYAT KUNJUNGAN</h2>
@@ -28,7 +28,7 @@
           </tbody>
         </table>
       </div>
-    </div>
+      </div>
     <nuxt-link to="/pengunjung/tambah">
       <button type="submit" class="btn ms-3 btn-lg">KEMBALI</button>
     </nuxt-link>
