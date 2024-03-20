@@ -16,7 +16,7 @@
         </div>
     </div>
 </div>
-<nuxt-link to="/buku/">
+<nuxt-link to="/">
     <button type="submit" class="btn ms-3 btn-lg">KEMBALI</button>
   </nuxt-link>
 </template>
