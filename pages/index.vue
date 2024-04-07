@@ -28,7 +28,7 @@
         <div class="card c2 rounded-5">
           <div class="card-body text">
             <h1 class="no">3</h1>
-            <h3 class="pt-4">Pengunjung</h3>
+            <h3 class="pt-4">{{ visitor }}</h3>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
         <div class="card c2 rounded-5">
           <div class="card-body text">
             <h1 class="no">180</h1>
-            <h3 class="pt-4">Buku</h3>
+            <h3 class="pt-4">{{ book }}</h3>
           </div>
         </div>
       </div>
@@ -51,6 +51,28 @@
 
 <script setup>
 useHead({ title: "Home / Perpus Digital" })
+
+const visitor = ref(0)
+const book = ref(0)
+  
+const countVisitor = async () => {
+const { data, count } = await supabase
+.from('pengunjung')
+.select('*', { count: 'exact' })
+if(data) visitor.value = count
+}
+
+const countBook = async () => {
+const { data, count } = await supabase
+.from('buku')
+.select('*', { count: 'exact' })
+if(data) book.value = count
+}
+
+onMounted(() => {
+  countVisitor()
+  countBook()
+)}
 </script>
 
 <style scoped>
