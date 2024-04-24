@@ -3,10 +3,19 @@
     <div class="row">
       <div class="col-lg-12 p-5">
         <h2 class="text-center my-4">RIWAYAT KUNJUNGAN</h2>
-        <div class="my-3">
-          <input type="search" class="form-control form-cntrol-lg rounded-4" placeholder="Filter">
+        <form @submit.prevent="cariPengunjung">
+          <div class="my-3">
+            <input
+              v-model="keyword"
+              type="search"
+              class="form-control form-cntrol-lg rounded-4"
+              placeholder="Filter"
+            />
+          </div>
+        </form>
+        <div class="my-3 text-muted">
+          Menampilkan {{ visitors.length }} dari {{ visitor }}
         </div>
-        <div class="my-3 text-muted">Menampilkan 1 dari 1</div>
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -18,8 +27,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(visitor,i) in visitors" :key="i">
-              <td>{{ i+1 }}.</td>
+            <tr v-for="(visitor, i) in visitors" :key="i">
+              <td>{{ visitor.id }}.</td>
               <td>{{ visitor.nama }}</td>
               <td>{{ visitor.keanggotaan.nama }}</td>
               <td>{{ visitor.created_at }}</td>
@@ -28,17 +37,52 @@
           </tbody>
         </table>
       </div>
-      </div>
+    </div>
     <nuxt-link to="/pengunjung/tambah">
       <button type="submit" class="btn ms-3 btn-lg">KEMBALI</button>
     </nuxt-link>
   </div>
 </template>
 
+<script setup>
+const supabase = useSupabaseClient();
+
+const visitors = ref([]);
+const visitor = ref(0);
+
+const getPengunjung = async () => {
+  const { data, error } = await supabase
+    .from("pengunjung")
+    .select(`*, keanggotaan(*), keperluan(*)`)
+    .order("id", { ascending: false });
+  if (data) visitors.value = data;
+};
+
+const countVisitor = async () => {
+  const { data, count } = await supabase
+    .from("pengunjung")
+    .select("*", { count: "exact" });
+  if (data) visitor.value = count;
+};
+
+const cariPengunjung = async () => {
+  const { data } = await supabase
+    .form("pengunjung")
+    .select(`*, keanggotaan(*), keperluan(*)`)
+    .ilike("nama", `%${keyword.value}%`);
+  if (data) visitors.value = data;
+};
+
+onMounted(() => {
+  getPengunjung();
+  countVisitor();
+});
+</script>
+
 <style scoped>
 button {
   border: 1px solid #000;
-  background-color: #265CB5;
+  background-color: #265cb5;
   color: #fff;
   position: fixed;
   bottom: 30px;
@@ -49,22 +93,6 @@ button {
 button:hover {
   border: 1px solid #000;
   background-color: #fff;
-  color: #265CB5;
+  color: #265cb5;
 }
 </style>
-
-<script setup>
-const supabase = useSupabaseClient()
-
-const visitors = ref([])
-
-const getPengunjung = async () => {
-  const {data, error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
-  if(data) visitors.value = data
-}
-
-onMounted (() => {
-  getPengunjung()
-})
-
-</script>

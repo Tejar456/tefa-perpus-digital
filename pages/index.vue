@@ -27,16 +27,16 @@
       <div class="col-sm-5 mb-3 kartu">
         <div class="card c2 rounded-5">
           <div class="card-body text">
-            <h1 class="no">3</h1>
-            <h3 class="pt-4">{{ visitor }}</h3>
+            <h1 class="no">{{ visitor }}</h1>
+            <h3 class="pt-4">Pengunjung</h3>
           </div>
         </div>
       </div>
       <div class="col-sm-5 kartu">
         <div class="card c2 rounded-5">
           <div class="card-body text">
-            <h1 class="no">180</h1>
-            <h3 class="pt-4">{{ book }}</h3>
+            <h1 class="no">{{ book }}</h1>
+            <h3 class="pt-4">Buku</h3>
           </div>
         </div>
       </div>
@@ -50,29 +50,29 @@
 </template>
 
 <script setup>
-useHead({ title: "Home / Perpus Digital" })
+useHead({ title: "Home / Perpus Digital" });
+const supabase = useSupabaseClient();
+const visitor = ref(0);
+const book = ref(0);
 
-const visitor = ref(0)
-const book = ref(0)
-  
 const countVisitor = async () => {
-const { data, count } = await supabase
-.from('pengunjung')
-.select('*', { count: 'exact' })
-if(data) visitor.value = count
-}
+  const { data, count } = await supabase
+    .from("pengunjung")
+    .select("*", { count: "exact" });
+  if (data) visitor.value = count;
+};
 
 const countBook = async () => {
-const { data, count } = await supabase
-.from('buku')
-.select('*', { count: 'exact' })
-if(data) book.value = count
-}
+  const { data, count } = await supabase
+    .from("buku")
+    .select("*", { count: "exact" });
+  if (data) book.value = count;
+};
 
 onMounted(() => {
-  countVisitor()
-  countBook()
-)}
+  countVisitor();
+  countBook();
+});
 </script>
 
 <style scoped>
@@ -82,20 +82,20 @@ onMounted(() => {
 }
 
 .card.bg-pengunjung {
-  background-image: url('../assets/img/bg-home-kunjungan.jpeg');
+  background-image: url("../assets/img/bg-home-kunjungan.jpeg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .card.bg-buku {
-  background-image: url('../assets/img/bg-home-cari-buku.jpg');
+  background-image: url("../assets/img/bg-home-cari-buku.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
-.card-body>h4 {
+.card-body > h4 {
   color: #fff;
   position: absolute;
   bottom: 5px;
@@ -124,4 +124,3 @@ onMounted(() => {
   font-size: 70px;
 }
 </style>
-
