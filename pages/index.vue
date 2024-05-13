@@ -25,24 +25,28 @@
     </div>
     <div class="row my-5 d-flex justify-content-around">
       <div class="col-sm-5 mb-3 kartu">
-        <div class="card c2 rounded-5">
-          <div class="card-body text">
-            <h1 class="no">{{ visitor }}</h1>
-            <div class="text">Pengunjung</div>
+          <nuxt-link to="/pengunjung">
+          <div class="card c2 rounded-5">
+            <div class="card-body text">
+              <h1 class="no">{{ visitor }}</h1>
+              <div class="text">Pengunjung</div>
+            </div>
           </div>
+        </nuxt-link>
+        </div>
+        <div class="col-sm-5 kartu">
+          <nuxt-link to="/buku">
+          <div class="card c2 rounded-5">
+            <div class="card-body text">
+              <h1 class="no">{{ book }}</h1>
+              <div class="text">Buku</div>
+            </div>
+          </div>
+        </nuxt-link>
         </div>
       </div>
-      <div class="col-sm-5 kartu">
-        <div class="card c2 rounded-5">
-          <div class="card-body text">
-            <h1 class="no">{{ book }}</h1>
-            <div class="text">Buku</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
+      <div class="container">
+        <div class="row">
         <chart-statistik />
       </div>
     </div>
@@ -76,6 +80,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+* {
+  text-decoration: none;
+}
 .text { 
   font-size: 30px;
   font-weight: 600
@@ -122,9 +129,11 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #000000;
 }
 
 .no {
   font-size: 70px;
+  color: #000000;
 }
 </style>
