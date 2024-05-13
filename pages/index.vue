@@ -28,7 +28,7 @@
         <div class="card c2 rounded-5">
           <div class="card-body text">
             <h1 class="no">{{ visitor }}</h1>
-            <h3 class="pt-4">Pengunjung</h3>
+            <div class="text">Pengunjung</div>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
         <div class="card c2 rounded-5">
           <div class="card-body text">
             <h1 class="no">{{ book }}</h1>
-            <h3 class="pt-4">Buku</h3>
+            <div class="text">Buku</div>
           </div>
         </div>
       </div>
@@ -76,6 +76,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.text { 
+  font-size: 30px;
+  font-weight: 600
+}
 .card {
   height: 250px;
   box-shadow: 1px 1px 10px #17161633;

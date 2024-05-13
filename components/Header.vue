@@ -1,7 +1,7 @@
 <template>
     <div class="header">
     <div class="h-img">
-      <img src="~/assets/img/LOGO-SMK4.png">
+      <img src="~/assets/img/LOGO-SMK4.png" alt="logo">
     </div>
     <div class="h-text">
       <div class="t-judul">
