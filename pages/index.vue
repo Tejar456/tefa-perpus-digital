@@ -35,7 +35,7 @@
         </nuxt-link>
         </div>
         <div class="col-sm-5 kartu">
-          <nuxt-link to="/buku">
+          <nuxt-link to="/login">
           <div class="card c2 rounded-5">
             <div class="card-body text">
               <h1 class="no">{{ book }}</h1>

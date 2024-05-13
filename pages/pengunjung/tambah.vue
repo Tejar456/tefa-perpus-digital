@@ -80,9 +80,6 @@
               <option v-for="(item, i) in objectives" :key="i" :value="item.id">
                 {{ item.nama }}
               </option>
-              <!-- <option value="Baca Buku">Baca Buku</option>
-              <option value="Pinjam Buku">Pinjam Buku</option>
-              <option value="StaKembalikan Bukuf">Kembalikan Buku</option> -->
             </select>
           </div>
           <div class="tombol">
