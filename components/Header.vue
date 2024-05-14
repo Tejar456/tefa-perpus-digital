@@ -1,7 +1,7 @@
 <template>
     <div class="header">
     <div class="h-img">
-      <img src="~/assets/img/LOGO-SMK4.png" alt="logo">
+      <img src="~/assets/img/LOGO-SMK4.webp" alt="logo">
     </div>
     <div class="h-text">
       <div class="t-judul">
@@ -54,7 +54,6 @@
   .h-text {
     margin-left: -1.5rem;
     line-height: 5px;
- ;
   }
 
   .t-judul {
