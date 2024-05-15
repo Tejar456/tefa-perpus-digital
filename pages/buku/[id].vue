@@ -15,14 +15,14 @@
 
     <div v-else>
       <div class="row mt-5">
-        <div class="col-md-3 card">
-          <img :src="buku.cover" alt="cover">
+        <div class="col-sm-4 card">
+          <img :src="buku.cover" alt="cover" class="cover">
         </div>
-        <div class="p-5 col-md-9">
+        <div class="p-5 col-sm-8">
           <div class="badge">{{ buku.kategori }}</div>
 
           <ul class="text">
-            <li class="list-group-item">Judul: {{ buku.judul }}</li>
+            <h4 class="list-group-item">{{ buku.judul }}</h4>
             <li class="list-group-item">Penulis: {{ buku.penulis }}</li>
             <li class="list-group-item">Penerbit: {{ buku.penerbit }}</li>
             <li class="list-group-item">Tahun Penerbit: {{ buku.tahun_penerbit }}</li>
@@ -71,6 +71,9 @@ onMounted(() => {
 
 .card {
   border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
