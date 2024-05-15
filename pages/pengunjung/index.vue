@@ -40,7 +40,7 @@
               <td>{{ visitor.anggota }}</td>
               <td v-if="visitor.tingkat && visitor.jurusan && visitor.kelas">{{ visitor.tingkat }} {{ visitor.jurusan}} {{ visitor.kelas }}</td>
               <td v-else>-</td>
-              <td>{{ visitor.waktu }} </td>
+              <td>{{ visitor.waktu }}</td>
               <td>{{ visitor.perlu }}</td>
             </tr>
           </tbody>
@@ -60,7 +60,6 @@ const supabase = useSupabaseClient();
 const visitors = ref([]);
 const visitor = ref(0);
 const keyword = ref("");
-const route = useRoute()
 
 
 const getPengunjung = async () => {
@@ -87,12 +86,6 @@ const cariPengunjung = async () => {
 };
 
 
-// const hapus = async() => {
-//   const { error } = await supabase.from('pengunjung').delete()
-//   .eq('id', route.params.id)
-//   if (error) throw error
-// }
-
 onMounted(() => {
   getPengunjung();
   countVisitor();
@@ -117,5 +110,12 @@ button:hover {
   border: 1px solid #000;
   background-color: #fff;
   color: #265cb5;
+}
+
+@media only screen and (max-width: 40em) {
+.table {
+  font-size: 50%;
+}
+
 }
 </style>

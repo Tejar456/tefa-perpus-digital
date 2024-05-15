@@ -1,12 +1,10 @@
 <template>
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengunjung</title>
   </head>
   <html lang="en">
-
   <div class="container-fluid p-5">
     <div class="row">
       <div class="col-lg-12 -flex justify-content-around">
@@ -21,16 +19,21 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div v-for="(book, i) in books" :key="i" class="col-lg-2">
-        <nuxt-link :to="`buku/${book.id}`">
-          <div class="card mb-3">
-            <div class="card-body">
-              <img :src="book.cover" class="cover" alt="cover" />
+    <div v-if="books.length >= 1">
+      <div class="row">
+        <div v-for="(book, i) in books" :key="i" class="col-lg-2 col-md-4 col-sm-6">
+          <nuxt-link :to="`buku/${book.id}`">
+            <div class="card mb-3">
+              <div class="card-body">
+                <img :src="book.cover" class="cover" alt="cover" />
+              </div>
             </div>
-          </div>
-        </nuxt-link>
+          </nuxt-link>
+        </div>
       </div>
+    </div>
+    <div v-else>
+      <p class="text">Buku Tidak {{keyword}} Tersedia</p>
     </div>
     <nuxt-link to="/">
       <button type="submit" class="btn ms-3 btn-lg">KEMBALI</button>
@@ -70,8 +73,11 @@ const keyword = ref("");
 </script>
 
 <style scoped>
-.card-body>img {
+.card-body img {
   width: 200px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .cover {
@@ -83,6 +89,7 @@ const keyword = ref("");
 
 .card {
   border: none;
+
 }
 
 button {
@@ -99,5 +106,11 @@ button:hover {
   border: 1px solid #000;
   background-color: #fff;
   color: #265cb5;
+}
+
+.text {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center; 
 }
 </style>

@@ -16,7 +16,7 @@
     <div v-else>
       <div class="row mt-5">
         <div class="col-md-3 card">
-          <img :src="buku.cover" alt="logo">
+          <img :src="buku.cover" alt="cover">
         </div>
         <div class="p-5 col-md-9">
           <div class="badge">{{ buku.kategori }}</div>

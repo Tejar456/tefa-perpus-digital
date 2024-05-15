@@ -90,6 +90,7 @@ const form = ref({
 const tambahBuku = async () => {
   console.log(form.value)
   const { data, error } = await supabase.from('buku').insert([form.value])
+  if (!error) location.reload()
 }
 
 const getKeanggotaan = async () => {
