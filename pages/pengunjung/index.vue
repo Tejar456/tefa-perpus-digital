@@ -40,7 +40,7 @@
               <td>{{ visitor.anggota }}</td>
               <td v-if="visitor.tingkat && visitor.jurusan && visitor.kelas">{{ visitor.tingkat }} {{ visitor.jurusan}} {{ visitor.kelas }}</td>
               <td v-else>-</td>
-              <td>{{ visitor.waktu }}</td>
+              <td>{{ visitor.waktu }} {{ visitor.date }}</td>
               <td>{{ visitor.perlu }}</td>
             </tr>
           </tbody>
