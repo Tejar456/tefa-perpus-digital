@@ -1,11 +1,11 @@
 <template>
 
-  <head>
+  <!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengunjung</title>
   </head>
-  <html lang="en">
+  <html lang="en"> -->
 
   <div class="container">
     <div v-if="loading">
@@ -38,10 +38,10 @@
     <button type="submit" class="btn ms-3 btn-lg">KEMBALI</button>
   </nuxt-link>
 
-  </html>
+  <!-- </html> -->
 </template>
 
-<script setup>
+<script setup>1
 const supabase = useSupabaseClient()
 
 const route = useRoute()
@@ -64,6 +64,11 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.cover {
+  height: 300px;
+  width: 200px;
+}
+
 .text {
   font-size: 1rem;
   line-height: 25px;

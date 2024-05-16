@@ -1,11 +1,11 @@
 <template>
 
-  <head>
+  <!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengunjung</title>
   </head>
-  <html lang="en">
+  <html lang="en"> -->
 
   <div>
     <div class="container">
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  </html>
+  <!-- </html> -->
 </template>
 
 <script setup>

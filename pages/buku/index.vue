@@ -1,10 +1,10 @@
 <template>
-  <head>
+  <!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengunjung</title>
   </head>
-  <html lang="en">
+  <html lang="en"> -->
   <div class="container-fluid p-5">
     <div class="row">
       <div class="col-lg-12 -flex justify-content-around">
@@ -19,7 +19,10 @@
         </div>
       </div>
     </div>
-    <div v-if="books.length >= 1">
+    <div v-if="books.length == 0">
+      <p class="text">Buku Tidak {{ keyword }} Tersedia</p>
+    </div>
+    <div v-else>
       <div class="row">
         <div v-for="(book, i) in books" :key="i" class="col-lg-2 col-md-4 col-sm-6">
           <nuxt-link :to="`buku/${book.id}`">
@@ -32,15 +35,12 @@
         </div>
       </div>
     </div>
-    <div v-else>
-      <p class="text">Buku Tidak {{keyword}} Tersedia</p>
-    </div>
     <nuxt-link to="/">
       <button type="submit" class="btn ms-3 btn-lg">KEMBALI</button>
     </nuxt-link>
   </div>
 
-  </html>
+  <!-- </html> -->
 </template>
 
 <script setup>
@@ -81,7 +81,8 @@ const keyword = ref("");
 }
 
 .cover {
-  height: 100%;
+  height: 350px;
+  width: 100px;
   object-fit: cover;
   object-position: 0 30;
   border: none;
@@ -111,6 +112,6 @@ button:hover {
 .text {
   font-size: 30px;
   font-weight: 600;
-  text-align: center; 
+  text-align: center;
 }
 </style>

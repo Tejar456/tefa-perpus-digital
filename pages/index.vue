@@ -25,7 +25,7 @@
     </div>
     <div class="row my-5 d-flex justify-content-around">
       <div class="col-sm-5 mb-3 kartu">
-          <nuxt-link to="/pengunjung">
+        <nuxt-link to="/pengunjung">
           <div class="card c2 rounded-5">
             <div class="card-body text">
               <h1 class="no">{{ visitor }}</h1>
@@ -33,9 +33,9 @@
             </div>
           </div>
         </nuxt-link>
-        </div>
-        <div class="col-sm-5 kartu">
-          <nuxt-link to="/login">
+      </div>
+      <div class="col-sm-5 kartu">
+        <nuxt-link to="/login">
           <div class="card c2 rounded-5">
             <div class="card-body text">
               <h1 class="no">{{ book }}</h1>
@@ -43,10 +43,10 @@
             </div>
           </div>
         </nuxt-link>
-        </div>
       </div>
-      <div class="container">
-        <div class="row">
+    </div>
+    <div class="container">
+      <div class="row">
         <chart-statistik />
       </div>
     </div>
@@ -83,10 +83,12 @@ onMounted(() => {
 * {
   text-decoration: none;
 }
-.text { 
+
+.text {
   font-size: 30px;
   font-weight: 600
 }
+
 .card {
   height: 250px;
   box-shadow: 1px 1px 10px #17161633;
@@ -106,7 +108,7 @@ onMounted(() => {
   background-size: cover;
 }
 
-.card-body > h4 {
+.card-body>h4 {
   color: #fff;
   position: absolute;
   bottom: 5px;
