@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="h-img">
-      <img src="~/assets/img/LOGO-SMK4.webp" alt="smkn4 tasikmalaya" />
+      <img src="~/assets/img/LOGO-SMK4.webp" alt="logo" />
     </div>
     <div class="h-text">
       <div class="t-judul">
@@ -11,9 +11,30 @@
       <p>Jl.Depok, Sukamenak, Purbaratu 46196</p>
     </div>
   </div>
+  <NuxtLink to="/logout">
+    <button type="submit" class="btn btn-lg radius logout" formaction="">LOGOUT</button>
+  </NuxtLink>
 </template>
 
+
 <style scoped>
+button {
+  border: 1px solid #000;
+  background-color: #265cb5;
+  color: #fff;
+}
+
+button:hover {
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #265cb5;
+}
+
+.logout {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
 .header {
   display: flex;
   align-items: center;

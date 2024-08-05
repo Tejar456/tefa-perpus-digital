@@ -1,5 +1,4 @@
 <template>
-
   <!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@
         <h1>Tambah Buku</h1>
       </div>
 
-
       <form @submit.prevent="tambahBuku">
         <div class="mb-3">
           <input v-model="form.judul" type="text" class="form-control form-control-lg radius" placeholder="Judul" />
@@ -22,16 +20,13 @@
           <input v-model="form.penulis" type="text" class="form-control form-control-lg radius" placeholder="Penulis" />
         </div>
         <div class="mb-3">
-          <input v-model="form.deskripsi" type="text" class="form-control form-control-lg radius"
-            placeholder="Deskripsi" />
+          <input v-model="form.deskripsi" type="text" class="form-control form-control-lg radius" placeholder="Deskripsi" />
         </div>
         <div class="mb-3">
-          <input v-model="form.tahun_terbit" type="number" class="form-control form-control-lg radius"
-            placeholder="Tahun Terbit" />
+          <input v-model="form.tahun_terbit" type="number" class="form-control form-control-lg radius" placeholder="Tahun Terbit" />
         </div>
         <div class="mb-3">
-          <input v-model="form.penerbit" type="text" class="form-control form-control-lg radius"
-            placeholder="Penerbit" />
+          <input v-model="form.penerbit" type="text" class="form-control form-control-lg radius" placeholder="Penerbit" />
         </div>
         <div class="mb-3">
           <input v-model="form.cover" type="text" class="form-control form-control-lg radius" placeholder="Cover" />
@@ -52,14 +47,10 @@
             </option>
           </select>
         </div>
-        <button type="submit" class="btn btn-lg radius" formaction="">
-          KIRIM
-        </button>
+        <button type="submit" class="btn btn-lg radius" formaction="">KIRIM</button>
       </form>
       <NuxtLink to="/logout">
-        <button type="submit" class="btn btn-lg radius logout" formaction="">
-          LOGOUT
-        </button>
+        <button type="submit" class="btn btn-lg radius logout" formaction="">LOGOUT</button>
       </NuxtLink>
     </div>
   </div>
@@ -69,13 +60,14 @@
 
 <script setup>
 definePageMeta({
-  middleware: "auth",
+  // middleware: "auth",
+  layout: "admin",
 });
 
-const supabase = useSupabaseClient()
+const supabase = useSupabaseClient();
 
-const kategori = ref([])
-const noRak = ref([])
+const kategori = ref([]);
+const noRak = ref([]);
 const form = ref({
   judul: "",
   penulis: "",
@@ -85,13 +77,13 @@ const form = ref({
   cover: "",
   kategori: "",
   rak: "",
-})
+});
 
 const tambahBuku = async () => {
-  console.log(form.value)
-  const { data, error } = await supabase.from('buku').insert([form.value])
-  if (!error) location.reload()
-}
+  console.log(form.value);
+  const { data, error } = await supabase.from("buku").insert([form.value]);
+  if (!error) location.reload();
+};
 
 const getKeanggotaan = async () => {
   const { data, error } = await supabase.from("kategori").select("*");
@@ -104,9 +96,9 @@ const getRak = async () => {
 };
 
 onMounted(() => {
-  getKeanggotaan()
-  getRak()
-})
+  getKeanggotaan();
+  getRak();
+});
 </script>
 
 <style scoped>
@@ -121,7 +113,6 @@ onMounted(() => {
 form {
   width: 100%;
 }
-
 
 button {
   border: 1px solid #000;

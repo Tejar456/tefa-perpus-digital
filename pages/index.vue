@@ -1,4 +1,11 @@
 <template>
+  <div>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Perpustakaan Smkn4 Tasikmalaya</title>
+    </head>
+  </div>
   <div class="container-fluid font">
     <div class="row my-5 d-flex justify-content-around">
       <div class="col-sm-5 mb-3 kartu">
@@ -60,16 +67,12 @@ const visitor = ref(0);
 const book = ref(0);
 
 const countVisitor = async () => {
-  const { data, count } = await supabase
-    .from("pengunjung")
-    .select("*", { count: "exact" });
+  const { data, count } = await supabase.from("pengunjung").select("*", { count: "exact" });
   if (data) visitor.value = count;
 };
 
 const countBook = async () => {
-  const { data, count } = await supabase
-    .from("buku")
-    .select("*", { count: "exact" });
+  const { data, count } = await supabase.from("buku").select("*", { count: "exact" });
   if (data) book.value = count;
 };
 
@@ -86,7 +89,7 @@ onMounted(() => {
 
 .text {
   font-size: 30px;
-  font-weight: 600
+  font-weight: 600;
 }
 
 .card {
@@ -108,7 +111,7 @@ onMounted(() => {
   background-size: cover;
 }
 
-.card-body>h4 {
+.card-body > h4 {
   color: #fff;
   position: absolute;
   bottom: 5px;
